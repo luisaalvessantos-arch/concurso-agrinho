@@ -1,40 +1,23 @@
-/* --- ESTILOS DO QUIZ INTERATIVO --- */
-.quiz-section {
+/* ==================== QUIZ INTERATIVO ==================== */
+.quiz-container {
     margin-top: 60px;
-    background: linear-gradient(135deg, #161b26, #1f2738);
-    padding: 40px;
+    background: linear-gradient(135deg, #161b26, #1e1233);
+    padding: 30px;
     border-radius: 20px;
-    border: 2px solid #242b3d;
-}
-
-.quiz-subtitle {
-    color: var(--gray);
-    margin-bottom: 25px;
+    border: 1px solid var(--secondary);
 }
 
 .quiz-card {
-    background: #0b0f19;
-    padding: 25px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
     border-radius: 12px;
-    border: 1px solid #334155;
+    margin-top: 20px;
 }
 
-.quiz-header {
-    margin-bottom: 20px;
-}
-
-.quiz-category {
-    color: var(--primary);
-    font-size: 12px;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.quiz-header p {
-    font-size: 20px;
+.question {
+    font-size: 18px;
     font-weight: 600;
-    margin-top: 5px;
+    margin-bottom: 20px;
 }
 
 .quiz-options {
@@ -43,32 +26,132 @@
     gap: 12px;
 }
 
-.option-btn {
-    background: #161b26;
+.quiz-btn {
+    background: #242b3d;
     color: var(--text-color);
-    border: 1px solid #334155;
-    padding: 15px 20px;
-    border-radius: 8px;
+    border: 1px solid #3b445c;
+    padding: 14px;
     text-align: left;
-    font-size: 16px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    font-size: 15px;
+    transition: all 0.3s ease;
 }
 
-/* Efeito ao passar o mouse nas opções */
-.option-btn:hover:not([disabled]) {
-    background: #242b3d;
-    border-color: var(--secondary);
+.quiz-btn:hover {
+    background: #2d364d;
+    border-color: var(--primary);
     transform: translateX(5px);
 }
 
-/* Cores de acerto e erro */
-.option-btn.correct {
-    background: rgba(0, 255, 102, 0.2) !important;
+/* Animações de acerto e erro */
+.quiz-btn.correct {
+    background: #00ff6633 !important;
     border-color: var(--primary) !important;
-    color: #00ff66;
+    color: var(--primary);
     font-weight: bold;
 }
 
-.option-btn.wrong {
-    background: rgba(255, 0, 85, 0.2
+.quiz-btn.wrong {
+    background: #ff005533 !important;
+    border-color: #ff0055 !important;
+    color: #ff0055;
+}
+
+.feedback-msg {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    min-height: 24px;
+}
+
+/* ==================== SEÇÃO DE COMENTÁRIOS ==================== */
+.comments-section {
+    margin-top: 60px;
+}
+
+.comment-form {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid #242b3d;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.comment-form input, .comment-form textarea {
+    background: #0b0f19;
+    border: 1px solid #242b3d;
+    color: var(--text-color);
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.comment-form input:focus, .comment-form textarea:focus {
+    border-color: var(--secondary);
+}
+
+.comment-form button {
+    background: var(--secondary);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    align-self: flex-end;
+    transition: 0.3s;
+}
+
+.comment-form button:hover {
+    background: #5900cc;
+    box-shadow: 0 0 10px var(--secondary);
+}
+
+.comments-list {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.comment-item {
+    background: var(--card-bg);
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    border-left: 4px solid var(--primary);
+    animation: popIn 0.4s ease-out forwards; /* Animação de entrada */
+}
+
+.comment-avatar {
+    background: #242b3d;
+    padding: 10px;
+    border-radius: 50%;
+    color: var(--primary);
+}
+
+.comment-content h4 {
+    font-size: 14px;
+    color: var(--gray);
+    margin-bottom: 5px;
+}
+
+.comment-content p {
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+/* Microinteração de surgir novo comentário */
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0.9) translateY(10px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
